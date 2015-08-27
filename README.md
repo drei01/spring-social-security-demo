@@ -27,7 +27,7 @@ Running the demo
 ----------------
 
 /src/main/resources/environment.properties must be populated with Twitter consumer key and secret and Facebook clientId
-and secret for this application to run.   The return url of the Facebook client account must also be configured
+and secret and Google APIs clientId and clientSecret for this application to run.   The return url of the Facebook client account must also be configured
 to be the connection url for this application - http://localhost:8080/ . As Twitter allows any return
 url by default, no such requirement is needed for the Twitter client account.
 
