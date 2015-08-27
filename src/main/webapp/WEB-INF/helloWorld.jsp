@@ -16,6 +16,7 @@ Public Area.
 <p> <a href="/protected/twitter">Attempt to access</a> a Twitter protected resource</p>
 <p> <a href="/protected/facebook">Attempt to access</a> a Facebook protected resource</p>
 <p> <a href="/protected/facebookTwitter">Attempt to access</a> a Facebook and Twitter protected resource</p>
+<p> <a href="/protected/google">Attempt to access</a> a Google protected resource</p>
 
 </c:when>
 <c:otherwise>
@@ -38,14 +39,24 @@ Public Area.
                       <authz:authorize access="hasRole('ROLE_USER_FACEBOOK')">
 						<p>You are connected with Facebook. </p>
                     </authz:authorize>
-
+                    <authz:authorize access="hasRole('ROLE_USER_GOOGLE')">
+						<p>You are connected with Google. </p>
+                    </authz:authorize>
+                    
+                    
+                    <authz:authorize access="hasRole('ROLE_USER') and !hasRole('ROLE_USER_GOOGLE')">
+						<p><a href="/oauthconnect.jsp">Connect</a> your account with Google</p>
+                    </authz:authorize>
+                    
+                    <authz:authorize access="hasRole('ROLE_USER') and !hasRole('ROLE_USER_TWITTER')">
+						<p><a href="/oauthconnect.jsp">Connect</a> your account with Twitter</p>
+                    </authz:authorize>
            
                     <authz:authorize access="hasRole('ROLE_USER') and !hasRole('ROLE_USER_FACEBOOK')">
 						<p><a href="/oauthconnect.jsp">Connect</a> your account with Facebook</p>
                     </authz:authorize>
-                    <authz:authorize access="hasRole('ROLE_USER') and !hasRole('ROLE_USER_TWITTER')">
-						<p><a href="/oauthconnect.jsp">Connect</a> your account with Twitter</p>
-                    </authz:authorize>
+                    
+
                        
                  
 </body>                    

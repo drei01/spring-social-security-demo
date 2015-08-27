@@ -65,6 +65,16 @@ public class SpringSocialSecurityDemoController {
 		return "helloWorld";
 	}
 	
+	@RequestMapping("/protected/google")
+	public String helloGoogleProtectedWorld(Map model) {
+		model.put("userName", getUserName());
+
+		// Display on the jsp which security level the page is intended for
+		model.put("securityLevel", "Google Protected");
+
+		return "helloWorld";
+	}
+	
 	private String getUserName()
 	{
 		try

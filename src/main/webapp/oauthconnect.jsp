@@ -23,6 +23,13 @@
 </form> 
 </authz:authorize>
 
+<authz:authorize access="!hasRole('ROLE_USER_GOOGLE')">
+
+ <form class="login"action="http://localhost:8080/connect/google" method="POST">
+	<p><input type="submit" value="Connect with Google" /></p>
+</form> 
+</authz:authorize>
+
 </body>
 </html>
 

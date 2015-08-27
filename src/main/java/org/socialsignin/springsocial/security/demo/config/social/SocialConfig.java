@@ -22,6 +22,7 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
+import org.springframework.social.google.connect.GoogleConnectionFactory;
 import org.springframework.social.security.AuthenticationNameUserIdSource;
 import org.springframework.social.twitter.connect.TwitterConnectionFactory;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -58,7 +59,7 @@ public class SocialConfig implements SocialConfigurer {
 	public void addConnectionFactories(
 			ConnectionFactoryConfigurer cfConfig,
 			Environment env) {
-		 cfConfig.addConnectionFactory(new TwitterConnectionFactory(
+			cfConfig.addConnectionFactory(new TwitterConnectionFactory(
 	                env.getProperty("twitter.consumerKey"),
 	                env.getProperty("twitter.consumerSecret")
 	        ));
@@ -66,6 +67,11 @@ public class SocialConfig implements SocialConfigurer {
 	                env.getProperty("facebook.clientId"),
 	                env.getProperty("facebook.clientSecret")
 	        ));
+	        cfConfig.addConnectionFactory(new GoogleConnectionFactory(
+	        		env.getProperty("google.clientId"), 
+	        		env.getProperty("google.clientSecret")
+	        ));
+	        
 	        cfConfig.addConnectionFactory(new SpringSocialSecurityConnectionFactory());
 	}
 

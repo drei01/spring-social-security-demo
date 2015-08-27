@@ -67,6 +67,7 @@
 
 		<intercept-url pattern="/protected/twitter" access="hasRole('ROLE_USER_TWITTER')" />
 		<intercept-url pattern="/protected/facebook" access="hasRole('ROLE_USER_FACEBOOK')" />
+		<intercept-url pattern="/protected/google" access="hasRole('ROLE_USER_GOOGLE')" />
 		<intercept-url pattern="/protected/facebookTwitter" access="hasRole('ROLE_USER_FACEBOOK') and hasRole('ROLE_USER_TWITTER')" />
 		<intercept-url pattern="/protected/**" access="hasRole('ROLE_USER')" />
 		
